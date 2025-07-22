@@ -1,3 +1,5 @@
+export const prerender = false;
+
 import type { APIContext } from "astro";
 import { mxbai } from "../../search/lib/mxbai";
 import type { SearchResult } from "../../search/lib/types";
