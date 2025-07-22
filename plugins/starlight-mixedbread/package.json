@@ -1,0 +1,29 @@
+{
+  "name": "@astrojs/starlight-mixedbread",
+  "version": "0.1.0",
+  "description": "Mixedbread Vector Store plugin for the Starlight documentation theme for Astro",
+  "author": "Aamir",
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "index.ts",
+    "MixedbreadSearch.astro",
+    "schema.ts",
+    "variables.css",
+    "virtual.d.ts"
+  ],
+  "exports": {
+    ".": "./index.ts",
+    "./MixedbreadSearch.astro": "./MixedbreadSearch.astro",
+    "./schema": "./schema.ts"
+  },
+  "peerDependencies": {
+    "@astrojs/starlight": ">=0.32.0"
+  },
+  "dependencies": {
+    "@mixedbread/sdk": "^0.11.0"
+  },
+  "devDependencies": {
+    "@astrojs/starlight": "workspace:*"
+  }
+}
