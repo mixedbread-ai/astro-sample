@@ -35,12 +35,12 @@ export function DefaultSearchDialog(props: { open: boolean; onOpenChange: (open:
               results={results}
               isLoading={isLoading}
             >
-              <SearchDialogHeader className="border-b border-border/60">
+              <SearchDialogHeader>
                 <SearchIndicatorIcon />
                 <SearchInput className="focus-visible:outline-none py-3" />
               </SearchDialogHeader>
 
-              <SearchList items={results} className="max-h-[400px]" />
+              <SearchList items={results} className="max-h-[400px] border-t border-border/60" />
             </Search>
 
             <SearchDialogFooter className="justify-end flex">
