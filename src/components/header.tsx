@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Search } from 'lucide-react';
-import { DefaultSearchDialog } from './default-search-dialog';
+import { DefaultSearchDialog } from './search-dialog';
 import { Input } from '../search/ui/input';
 import { MxbaiLogoIcon } from '../search/ui/mxbai-logo-icon';
 
