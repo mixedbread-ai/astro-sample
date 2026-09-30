@@ -14,7 +14,7 @@ export default defineConfig({
         plugins: [
             starlightMixedbread({
                 apiKey: process.env.MXBAI_API_KEY || 'demo-key',
-                vectorStoreId: process.env.VECTOR_STORE_ID || 'demo-store-id',
+                storeId: process.env.STORE_ID || 'demo-store-id',
                 maxResults: 8,
             }),
         ],

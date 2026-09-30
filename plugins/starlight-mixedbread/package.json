@@ -1,7 +1,7 @@
 {
   "name": "@astrojs/starlight-mixedbread",
   "version": "0.1.0",
-  "description": "Mixedbread Vector Store plugin for the Starlight documentation theme for Astro",
+  "description": "Mixedbread Stores plugin for the Starlight documentation theme for Astro",
   "author": "Aamir",
   "license": "MIT",
   "type": "module",
@@ -21,7 +21,7 @@
     "@astrojs/starlight": ">=0.32.0"
   },
   "dependencies": {
-    "@mixedbread/sdk": "^0.11.0"
+    "@mixedbread/sdk": "^0.78.0"
   },
   "devDependencies": {
     "@astrojs/starlight": "workspace:*"

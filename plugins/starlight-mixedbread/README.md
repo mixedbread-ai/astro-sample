@@ -1,10 +1,10 @@
 # Starlight Mixedbread Plugin
 
-A client-side search plugin for Astro Starlight using Mixedbread's Vector Store API.
+A client-side search plugin for Astro Starlight using Mixedbread's Stores API.
 
 ## Features
 
-- 🔍 **Client-side search**: Search through your API endpoint powered by Mixedbread's Vector Store
+- 🔍 **Client-side search**: Search through your API endpoint powered by Mixedbread Stores
 - 🎨 **Starlight integration**: Seamlessly replaces the default search with a custom implementation
 - ⚡ **Fast and responsive**: Debounced search with loading states and keyboard navigation
 - ♿ **Accessible**: Full screen reader support with ARIA labels and live regions
@@ -34,7 +34,7 @@ export default defineConfig({
       plugins: [
         starlightMixedbread({
           apiKey: process.env.MXBAI_API_KEY,
-          vectorStoreId: process.env.VECTOR_STORE_ID,
+          storeId: process.env.STORE_ID,
         }),
       ],
     }),
@@ -48,7 +48,7 @@ Create a `.env` file:
 
 ```
 MXBAI_API_KEY=your-mixedbread-api-key
-VECTOR_STORE_ID=your-vector-store-id
+STORE_ID=your-store-id
 ```
 
 3. **Create the API endpoint**:
@@ -75,9 +75,9 @@ export const GET: APIRoute = async ({ url }) => {
   }
 
   try {
-    const response = await mxbai.vectorStores.search({
+    const response = await mxbai.stores.search({
       query,
-      vector_store_identifiers: [import.meta.env.VECTOR_STORE_ID],
+      store_identifiers: [import.meta.env.STORE_ID],
       top_k: 10,
     });
 
@@ -106,7 +106,7 @@ export const GET: APIRoute = async ({ url }) => {
 | Option | Type | Default | Description |
 |--------|------|---------|-------------|
 | `apiKey` | `string` | - | **Required.** Your Mixedbread API key |
-| `vectorStoreId` | `string` | - | **Required.** Your Vector Store ID |
+| `storeId` | `string` | - | **Required.** Your store ID |
 | `maxResults` | `number` | `10` | Maximum number of search results to return |
 | `baseUrl` | `string` | `'https://api.mixedbread.ai'` | Mixedbread API base URL |
 | `disableUserPersonalization` | `boolean` | `false` | Disable recent searches and favorites |
@@ -128,7 +128,7 @@ import type { MixedbreadClientOptions } from '@astrojs/starlight-mixedbread';
 
 export default {
   apiKey: process.env.MXBAI_API_KEY!,
-  vectorStoreId: process.env.VECTOR_STORE_ID!,
+  storeId: process.env.STORE_ID!,
   maxResults: 15,
   disableUserPersonalization: false,
 } satisfies MixedbreadClientOptions;
@@ -142,15 +142,15 @@ export default {
 - **Escape**: Close modal
 
 
-## Setting Up Your Vector Store
+## Setting Up Your Store
 
 1. **Create a Mixedbread account** at [mixedbread.ai](https://www.mixedbread.ai)
 
-2. **Create a Vector Store** and upload your documentation
+2. **Create a Store** and upload your documentation
 
 3. **Get your credentials**:
    - API Key from your account settings
-   - Vector Store ID from your vector store
+   - Store ID from your store
 
 4. **Prepare your data**: Ensure your documents have proper metadata:
    ```json

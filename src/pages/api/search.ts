@@ -15,7 +15,7 @@ interface SearchMetadata {
 }
 
 export const GET: APIRoute = async ({ url }) => {
-  if (!import.meta.env.MXBAI_API_KEY || !import.meta.env.VECTOR_STORE_ID) {
+  if (!import.meta.env.MXBAI_API_KEY || !import.meta.env.STORE_ID) {
     return new Response(JSON.stringify({ error: 'Environment setup failed' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
@@ -32,9 +32,9 @@ export const GET: APIRoute = async ({ url }) => {
   }
 
   try {
-    const response = await mxbai.vectorStores.search({
+    const response = await mxbai.stores.search({
       query,
-      vector_store_identifiers: [import.meta.env.VECTOR_STORE_ID],
+      store_identifiers: [import.meta.env.STORE_ID],
       top_k: 10,
       search_options: {
         return_metadata: true,

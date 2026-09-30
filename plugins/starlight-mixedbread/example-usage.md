@@ -17,7 +17,7 @@ export default defineConfig({
       plugins: [
         starlightMixedbread({
           apiKey: process.env.MXBAI_API_KEY,
-          vectorStoreId: process.env.VECTOR_STORE_ID,
+          storeId: process.env.STORE_ID,
           maxResults: 8,
         }),
       ],
@@ -50,7 +50,7 @@ import type { MixedbreadClientOptions } from '@astrojs/starlight-mixedbread';
 
 export default {
   apiKey: process.env.MXBAI_API_KEY!,
-  vectorStoreId: process.env.VECTOR_STORE_ID!,
+  storeId: process.env.STORE_ID!,
   maxResults: 15,
   baseUrl: 'https://api.mixedbread.ai',
   disableUserPersonalization: false,
@@ -74,7 +74,7 @@ const mxbai = new Mixedbread({
 
 export const GET: APIRoute = async ({ request, url }) => {
   // Validate environment variables
-  if (!import.meta.env.MXBAI_API_KEY || !import.meta.env.VECTOR_STORE_ID) {
+  if (!import.meta.env.MXBAI_API_KEY || !import.meta.env.STORE_ID) {
     return new Response(JSON.stringify({ error: 'Environment setup failed' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
@@ -91,10 +91,10 @@ export const GET: APIRoute = async ({ request, url }) => {
   }
 
   try {
-    // Search vector store
-    const response = await mxbai.vectorStores.search({
+    // Search the store
+    const response = await mxbai.stores.search({
       query,
-      vector_store_identifiers: [import.meta.env.VECTOR_STORE_ID],
+      store_identifiers: [import.meta.env.STORE_ID],
       top_k: 10,
       search_options: {
         return_metadata: true,
@@ -131,7 +131,7 @@ export const GET: APIRoute = async ({ request, url }) => {
 ```bash
 # .env
 MXBAI_API_KEY=your_mixedbread_api_key_here
-VECTOR_STORE_ID=your_vector_store_id_here
+STORE_ID=your_store_id_here
 ```
 
 ## Custom CSS Styling
@@ -165,7 +165,7 @@ You can customize the search interface by overriding CSS variables:
 
 ## Usage Tip
 
-**Vector Store Setup**: Ensure your Mixedbread vector store contains documents with proper metadata:
+**Store Setup**: Ensure your Mixedbread store contains documents with proper metadata:
    ```json
    {
      "title": "Page Title",
