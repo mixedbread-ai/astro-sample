@@ -15,8 +15,8 @@ importers:
         specifier: ^8.2.3
         version: 8.2.3(astro@5.12.3(@types/node@24.1.0)(rollup@4.45.1)(typescript@5.8.3))(rollup@4.45.1)
       '@mixedbread/sdk':
-        specifier: ^0.11.0
-        version: 0.11.1
+        specifier: ^0.78.0
+        version: 0.78.0
       astro:
         specifier: ^5.6.1
         version: 5.12.3(@types/node@24.1.0)(rollup@4.45.1)(typescript@5.8.3)
@@ -507,8 +507,8 @@ packages:
   '@mdx-js/mdx@3.1.0':
     resolution: {integrity: sha512-/QxEhPAvGwbQmy1Px8F899L5Uc2KZ6JtXwlCgJmjSTBedwOZkByYcBG4GceIGPXRDsmfxhHazuS+hlOShRLeDw==}
 
-  '@mixedbread/sdk@0.11.1':
-    resolution: {integrity: sha512-23h+EiNLxTtftmWTpz7arbHC5f1SZ96V5tFPkNL1dM+WDQt8H3EJwHOIIF7RyQNWBc8zGYEqi77BsSBS+rWGVg==}
+  '@mixedbread/sdk@0.78.0':
+    resolution: {integrity: sha512-gd5F8jaMt+mwRPzPBkLuXwP8jbR5dQQul5uuJomHrxGaO6Msff92Zu4rMXjZRyI8JYhQIDbzGqy9uSxjSz1YWA==}
     hasBin: true
 
   '@oslojs/encoding@1.1.0':
@@ -2624,7 +2624,7 @@ snapshots:
       - acorn
       - supports-color
 
-  '@mixedbread/sdk@0.11.1': {}
+  '@mixedbread/sdk@0.78.0': {}
 
   '@oslojs/encoding@1.1.0': {}
 
